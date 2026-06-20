@@ -215,6 +215,7 @@ The game may label the first class played each calendar day as the pet's “clas
 - Storybook-realistic animals with visible fur texture, believable anatomy, warm expressive eyes, and gentle animation.
 - Cozy environments with believable natural light, depth, wood, fabric, plants, and classroom materials rather than flat geometric backgrounds.
 - Original character designs and environments rather than copies of an existing brand or character.
+- Accessories should use believable fabric, knit, metal, and lens textures that match the pets' storybook realism. Each species requires its own alignment profile so glasses fit the eyes, hats and crowns sit on the head, clips attach near an ear, and neckwear follows the chest.
 - Each pet species must remain recognizable in all three available colors.
 - Cozy school spaces with playful animal-sized details.
 - Large readable type and minimal text per screen.

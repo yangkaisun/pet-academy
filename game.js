@@ -18,6 +18,25 @@
     { id: "crown", name: "Golden Crown", icon: "👑", type: "outfit", cost: 10 },
   ];
 
+  const accessoryFrames = { hat: 0, bow: 1, glasses: 2, flower: 3, scarf: 4, crown: 5 };
+  const accessoryFits = {
+    dog: {
+      hat: { x: 0, y: -158, size: 142 }, bow: { x: 0, y: 55, size: 130 },
+      glasses: { x: 0, y: -115, size: 130 }, flower: { x: 68, y: -118, size: 90 },
+      scarf: { x: 0, y: 70, size: 156 }, crown: { x: 0, y: -150, size: 130 },
+    },
+    cat: {
+      hat: { x: 0, y: -142, size: 132 }, bow: { x: 0, y: 61, size: 124 },
+      glasses: { x: 0, y: -72, size: 130 }, flower: { x: 67, y: -110, size: 82 },
+      scarf: { x: 0, y: 72, size: 148 }, crown: { x: 0, y: -137, size: 120 },
+    },
+    bunny: {
+      hat: { x: 0, y: -118, size: 112 }, bow: { x: 0, y: 69, size: 116 },
+      glasses: { x: 0, y: -57, size: 130 }, flower: { x: 64, y: -105, size: 76 },
+      scarf: { x: 0, y: 77, size: 140 }, crown: { x: 0, y: -113, size: 105 },
+    },
+  };
+
   const defaultSave = {
     petType: null,
     petColor: null,
@@ -469,6 +488,7 @@
     constructor() { super("academy"); }
     preload() {
       this.load.spritesheet("pet-portraits", "assets/pet-grid-transparent-v2.png", { frameWidth: 418, frameHeight: 418 });
+      this.load.spritesheet("accessories", "assets/accessories-transparent-v1.png", { frameWidth: 418, frameHeight: 418 });
       this.load.image("pet-room", "assets/pet-room.png");
       this.load.image("classroom", "assets/classroom.png");
     }
@@ -519,44 +539,13 @@
       container.add(petPortrait);
 
       const outfit = save.equipped;
-      const pet = this.add.graphics();
-      if (outfit === "hat") {
-        pet.fillStyle(0xffcf70).fillTriangle(-45, -110, 0, -205, 45, -110);
-        pet.fillStyle(0xe96f75).fillCircle(0, -207, 13);
+      const accessoryFrame = accessoryFrames[outfit];
+      const fit = accessoryFits[save.petType]?.[outfit];
+      if (accessoryFrame !== undefined && fit) {
+        const accessory = this.add.sprite(fit.x, fit.y, "accessories", accessoryFrame)
+          .setDisplaySize(fit.size, fit.size);
+        container.add(accessory);
       }
-      if (outfit === "bow") {
-        pet.fillStyle(0xe96f75).fillTriangle(-12, 82, -70, 52, -64, 105).fillTriangle(12, 82, 70, 52, 64, 105).fillCircle(0, 80, 18);
-      }
-      if (outfit === "glasses") {
-        const starPoints = (centerX) => Array.from({ length: 10 }, (_, index) => {
-          const radius = index % 2 === 0 ? 34 : 17;
-          const angle = -Math.PI / 2 + index * Math.PI / 5;
-          return new Phaser.Geom.Point(centerX + Math.cos(angle) * radius, -44 + Math.sin(angle) * radius);
-        });
-        const leftStar = starPoints(-42);
-        const rightStar = starPoints(42);
-        pet.fillStyle(0xffe98a, .28).fillPoints(leftStar, true).fillPoints(rightStar, true);
-        pet.lineStyle(8, 0x584d9e).strokePoints(leftStar, true).strokePoints(rightStar, true);
-        pet.lineBetween(-10, -44, 10, -44).lineBetween(-76, -46, -100, -56).lineBetween(76, -46, 100, -56);
-      }
-      if (outfit === "flower") {
-        pet.fillStyle(0xffd75e);
-        [[84,-92], [104,-92], [94,-104], [94,-80]].forEach(([px, py]) => pet.fillCircle(px, py, 13));
-        pet.fillStyle(0x9b6b32).fillCircle(94, -92, 10);
-      }
-      if (outfit === "scarf") {
-        pet.fillStyle(0x5b55a5).fillRoundedRect(-67, 63, 134, 31, 14);
-        pet.fillStyle(0x7169bd).fillRoundedRect(29, 78, 34, 82, 10);
-        pet.fillStyle(0xffcf70).fillRect(-43, 64, 11, 29).fillRect(9, 64, 11, 29);
-      }
-      if (outfit === "crown") {
-        pet.fillStyle(0xffcc4d).fillRect(-54, -152, 108, 42);
-        pet.fillTriangle(-54, -152, -37, -198, -18, -152);
-        pet.fillTriangle(-20, -152, 0, -210, 20, -152);
-        pet.fillTriangle(18, -152, 37, -198, 54, -152);
-        pet.fillStyle(0xe96f75).fillCircle(0, -137, 8);
-      }
-      container.add(pet);
       container.setSize(370, 370).setInteractive({ useHandCursor: true });
       container.on("pointerdown", () => {
         this.tweens.add({ targets: container, y: y - 22, duration: 170, yoyo: true, ease: "Quad.easeOut" });
@@ -564,7 +553,7 @@
         const bubble = document.querySelector(".speech");
         if (bubble) bubble.textContent = Phaser.Math.RND.pick(["You’re my favorite study buddy!", "Let’s earn some stars!", "Hi-five! Great to see you!"]);
       });
-      this.tweens.add({ targets: container, angle: { from: -1.5, to: 1.5 }, duration: 1400, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
+      this.tweens.add({ targets: container, y: { from: y - 1, to: y + 2 }, duration: 2100, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
       petParts = [container];
     }
   }
