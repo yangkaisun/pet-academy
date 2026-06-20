@@ -528,7 +528,16 @@
         pet.fillStyle(0xe96f75).fillTriangle(-12, 82, -70, 52, -64, 105).fillTriangle(12, 82, 70, 52, 64, 105).fillCircle(0, 80, 18);
       }
       if (outfit === "glasses") {
-        pet.lineStyle(8, 0x584d9e).strokeCircle(-38, -44, 27).strokeCircle(38, -44, 27).lineBetween(-11, -44, 11, -44);
+        const starPoints = (centerX) => Array.from({ length: 10 }, (_, index) => {
+          const radius = index % 2 === 0 ? 34 : 17;
+          const angle = -Math.PI / 2 + index * Math.PI / 5;
+          return new Phaser.Geom.Point(centerX + Math.cos(angle) * radius, -44 + Math.sin(angle) * radius);
+        });
+        const leftStar = starPoints(-42);
+        const rightStar = starPoints(42);
+        pet.fillStyle(0xffe98a, .28).fillPoints(leftStar, true).fillPoints(rightStar, true);
+        pet.lineStyle(8, 0x584d9e).strokePoints(leftStar, true).strokePoints(rightStar, true);
+        pet.lineBetween(-10, -44, 10, -44).lineBetween(-76, -46, -100, -56).lineBetween(76, -46, 100, -56);
       }
       if (outfit === "flower") {
         pet.fillStyle(0xffd75e);
