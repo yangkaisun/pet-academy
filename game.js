@@ -21,9 +21,9 @@
   const accessoryFrames = { hat: 0, bow: 1, glasses: 2, flower: 3, scarf: 4, crown: 5 };
   const accessoryFits = {
     dog: {
-      hat: { x: 0, y: -158, size: 142 }, bow: { x: 0, y: 55, size: 130 },
-      glasses: { x: 0, y: -115, size: 130 }, flower: { x: 68, y: -118, size: 90 },
-      scarf: { x: 0, y: 70, size: 156 }, crown: { x: 0, y: -150, size: 130 },
+      hat: { x: 0, y: -187, size: 136 }, bow: { x: 0, y: 55, size: 130 },
+      glasses: { x: 0, y: -115, size: 130 }, flower: { x: 72, y: -153, size: 86 },
+      scarf: { x: 0, y: 70, size: 156 }, crown: { x: 0, y: -180, size: 124 },
     },
     cat: {
       hat: { x: 0, y: -142, size: 132 }, bow: { x: 0, y: 61, size: 124 },
@@ -31,9 +31,9 @@
       scarf: { x: 0, y: 72, size: 148 }, crown: { x: 0, y: -137, size: 120 },
     },
     bunny: {
-      hat: { x: 0, y: -118, size: 112 }, bow: { x: 0, y: 69, size: 116 },
-      glasses: { x: 0, y: -57, size: 130 }, flower: { x: 64, y: -105, size: 76 },
-      scarf: { x: 0, y: 77, size: 140 }, crown: { x: 0, y: -113, size: 105 },
+      hat: { x: 0, y: -151, size: 108 }, bow: { x: 0, y: 69, size: 116 },
+      glasses: { x: 0, y: -57, size: 130 }, flower: { x: 76, y: -142, size: 72 },
+      scarf: { x: 0, y: 77, size: 140 }, crown: { x: 0, y: -147, size: 102 },
     },
   };
 
