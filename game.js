@@ -16,6 +16,10 @@
     { id: "flower", name: "Sunny Flower", icon: "🌼", type: "outfit", cost: 7 },
     { id: "scarf", name: "School Scarf", icon: "🧣", type: "outfit", cost: 8 },
     { id: "crown", name: "Golden Crown", icon: "👑", type: "outfit", cost: 10 },
+    { id: "space-sticker", name: "Space Sticker", icon: "🪐", type: "sticker", cost: 12 },
+    { id: "dino-sticker", name: "Dino Sticker", icon: "🦕", type: "sticker", cost: 15 },
+    { id: "art-sticker", name: "Artist Sticker", icon: "🎨", type: "sticker", cost: 18 },
+    { id: "gold-trophy", name: "Golden Trophy", icon: "🏆", type: "decor", cost: 25 },
   ];
 
   const accessoryFrames = { hat: 0, bow: 1, glasses: 2, flower: 3, scarf: 4, crown: 5 };
@@ -85,16 +89,68 @@
     ],
   };
 
-  const gymActivities = [
-    { answer: "Running", picture: "🏃", hint: "Moving quickly on your feet" },
-    { answer: "Doing a cartwheel", picture: "🤸", hint: "Turning sideways with your hands on the ground" },
-    { answer: "Lifting weights", picture: "🏋️", hint: "Raising a heavy bar" },
-    { answer: "Playing basketball", picture: "⛹️", hint: "Bouncing and shooting a ball toward a hoop" },
-    { answer: "Dancing", picture: "💃", hint: "Moving your body to music" },
-    { answer: "Swimming", picture: "🏊", hint: "Moving through water" },
-    { answer: "Riding a bike", picture: "🚴", hint: "Pedaling on two wheels" },
-    { answer: "Rowing a boat", picture: "🚣", hint: "Using oars to move across water" },
-  ];
+  const lessonQuestions = {
+    "gym-movers": [
+      { id: "run", answer: "Running", picture: "🏃", hint: "Moving quickly on your feet" },
+      { id: "cartwheel", answer: "Doing a cartwheel", picture: "🤸", hint: "Turning sideways with your hands on the ground" },
+      { id: "weights", answer: "Lifting weights", picture: "🏋️", hint: "Raising a heavy bar" },
+      { id: "basketball", answer: "Playing basketball", picture: "⛹️", hint: "Bouncing and shooting a ball toward a hoop" },
+      { id: "dance", answer: "Dancing", picture: "💃", hint: "Moving your body to music" },
+      { id: "swim", answer: "Swimming", picture: "🏊", hint: "Moving through water" },
+      { id: "bike", answer: "Riding a bike", picture: "🚴", hint: "Pedaling on two wheels" },
+      { id: "row", answer: "Rowing a boat", picture: "🚣", hint: "Using oars to move across water" },
+    ],
+    "gym-sports": [
+      { id: "soccer", answer: "Soccer", picture: "⚽", hint: "Players kick this ball toward a goal" },
+      { id: "basketball-sport", answer: "Basketball", picture: "🏀", hint: "Players bounce and shoot this ball" },
+      { id: "tennis", answer: "Tennis", picture: "🎾", hint: "Players use rackets across a net" },
+      { id: "baseball", answer: "Baseball", picture: "⚾", hint: "Players use a bat and run around bases" },
+      { id: "volleyball", answer: "Volleyball", picture: "🏐", hint: "Players hit this ball over a high net" },
+      { id: "hockey", answer: "Hockey", picture: "🏒", hint: "Players use sticks to move a puck" },
+      { id: "martial-arts", answer: "Martial arts", picture: "🥋", hint: "Athletes may wear this uniform and practice forms" },
+      { id: "archery", answer: "Archery", picture: "🏹", hint: "Athletes aim arrows at a target" },
+    ],
+    "gym-adventure": [
+      { id: "yoga", answer: "Yoga", picture: "🧘", hint: "Holding poses while breathing calmly" },
+      { id: "walk", answer: "Walking", picture: "🚶", hint: "Moving one step at a time" },
+      { id: "climb", answer: "Climbing", picture: "🧗", hint: "Moving upward using hands and feet" },
+      { id: "ski", answer: "Skiing", picture: "⛷️", hint: "Gliding over snow on two long skis" },
+      { id: "surf", answer: "Surfing", picture: "🏄", hint: "Riding an ocean wave on a board" },
+      { id: "fence", answer: "Fencing", picture: "🤺", hint: "Two athletes practice with special swords" },
+      { id: "skate", answer: "Skateboarding", picture: "🛹", hint: "Riding a board with four wheels" },
+      { id: "horse", answer: "Horseback riding", picture: "🏇", hint: "Riding and guiding a horse" },
+    ],
+    science: [
+      { id: "plant", prompt: "What helps this plant grow?", picture: "🌱", answer: "Sunlight and water", choices: ["Sunlight and water", "Candy and toys", "Paint and glue"], hint: "Plants need light and water" },
+      { id: "magnet", prompt: "What can a magnet attract?", picture: "🧲", answer: "Some metals", choices: ["Some metals", "Every kind of wood", "Clouds"], hint: "Magnets can pull on iron and some other metals" },
+      { id: "rain", prompt: "What kind of weather is this?", picture: "🌧️", answer: "Rainy", choices: ["Rainy", "Snowy", "Windless"], hint: "Water is falling from clouds" },
+      { id: "planet", prompt: "What travels around a star?", picture: "🪐", answer: "A planet", choices: ["A planet", "A sandwich", "A paintbrush"], hint: "Earth travels around the Sun" },
+      { id: "butterfly", prompt: "What can a caterpillar become?", picture: "🐛", answer: "A butterfly", choices: ["A butterfly", "A fish", "A pine tree"], hint: "It changes inside a chrysalis" },
+      { id: "lungs", prompt: "Which body part helps us breathe?", picture: "🫁", answer: "Lungs", choices: ["Lungs", "Elbows", "Fingernails"], hint: "Air moves in and out of these organs" },
+      { id: "ice", prompt: "What happens when ice gets warm?", picture: "🧊", answer: "It melts", choices: ["It melts", "It grows fur", "It becomes louder"], hint: "Solid water changes into liquid water" },
+      { id: "bee", prompt: "How do bees help many flowers?", picture: "🐝", answer: "They pollinate them", choices: ["They pollinate them", "They turn them into rocks", "They paint them"], hint: "Bees carry pollen between flowers" },
+    ],
+    history: [
+      { id: "past", prompt: "What do historians study?", picture: "📜", answer: "The past", choices: ["The past", "Only tomorrow", "Imaginary planets"], hint: "History is the story of people and events before today" },
+      { id: "archaeologist", prompt: "Who studies objects from long ago?", picture: "🏺", answer: "An archaeologist", choices: ["An archaeologist", "A weather reporter", "A veterinarian"], hint: "They study artifacts and ancient places" },
+      { id: "pyramids", prompt: "Which civilization built these pyramids?", picture: "🔺", answer: "Ancient Egyptians", choices: ["Ancient Egyptians", "Modern astronauts", "Vikings in Canada"], hint: "They were built beside the Nile River" },
+      { id: "letters", prompt: "What carried messages before phones?", picture: "✉️", answer: "Letters", choices: ["Letters", "Television remotes", "Video games"], hint: "People wrote messages on paper and delivered them" },
+      { id: "carriage", prompt: "What was common before cars?", picture: "🐎", answer: "Horse-drawn carriages", choices: ["Horse-drawn carriages", "Rocket scooters", "Submarines on roads"], hint: "Horses pulled wheeled vehicles" },
+      { id: "timeline", prompt: "What does a timeline show?", picture: "🗓️", answer: "Events in order", choices: ["Events in order", "Only animal sizes", "A recipe"], hint: "It arranges events from earlier to later" },
+      { id: "museum", prompt: "Why do museums preserve old objects?", picture: "🏛️", answer: "To learn about the past", choices: ["To learn about the past", "To hide every object", "To make them disappear"], hint: "Old objects can teach us how people lived" },
+      { id: "cave-art", prompt: "Where did some early people make art?", picture: "🪨", answer: "On cave walls", choices: ["On cave walls", "On computer screens", "On plastic toys"], hint: "Some ancient paintings survive inside caves" },
+    ],
+    art: [
+      { id: "brush", prompt: "Which tool can spread paint?", picture: "🖌️", answer: "A paintbrush", choices: ["A paintbrush", "A telescope", "A spoon"], hint: "Its bristles hold and spread paint" },
+      { id: "palette", prompt: "What does an artist use this for?", picture: "🎨", answer: "Mixing paint colors", choices: ["Mixing paint colors", "Measuring rainfall", "Planting seeds"], hint: "Paint colors can be placed and mixed on it" },
+      { id: "purple", prompt: "What can red and blue make together?", picture: "🔴 + 🔵", answer: "Purple", choices: ["Purple", "Green", "Orange"], hint: "Mix these two colors to make a violet color" },
+      { id: "green", prompt: "What can blue and yellow make together?", picture: "🔵 + 🟡", answer: "Green", choices: ["Green", "Purple", "Pink"], hint: "This mixture matches the color of many leaves" },
+      { id: "sculpture", prompt: "What kind of art can you walk around?", picture: "🗿", answer: "A sculpture", choices: ["A sculpture", "A song", "A photograph on a screen"], hint: "It is a three-dimensional artwork" },
+      { id: "collage", prompt: "What is art made by gluing pieces together?", picture: "✂️", answer: "A collage", choices: ["A collage", "A solo", "A telescope"], hint: "Paper, fabric, and pictures can be combined" },
+      { id: "portrait", prompt: "What is a picture of a person called?", picture: "🖼️", answer: "A portrait", choices: ["A portrait", "A landscape", "A map"], hint: "It usually focuses on a face or person" },
+      { id: "pattern", prompt: "What repeats in a design?", picture: "🔷🔶🔷🔶", answer: "A pattern", choices: ["A pattern", "A shadow", "A whisper"], hint: "Shapes or colors repeat in a predictable way" },
+    ],
+  };
 
   const ui = document.querySelector("#ui");
 
@@ -230,8 +286,24 @@
           </div>
           <div class="class-tile gym-tile">
             <span class="class-icon">🏃</span><h3>Giggle Gym</h3>
-            <p class="small">Look at the picture and name the activity.</p>
-            <button data-classroom="gym">Let’s get moving!</button>
+            <button data-classroom="gym" data-class-level="movers">🌱 Movers <span class="small">Name the activity</span></button>
+            <button data-classroom="gym" data-class-level="sports">🏅 Sports Stars <span class="small">Identify the sport</span></button>
+            <button data-classroom="gym" data-class-level="adventure">🏔️ Adventure <span class="small">Trickier activities</span></button>
+          </div>
+          <div class="class-tile science-tile">
+            <span class="class-icon">🔬</span><h3>Science Lab</h3>
+            <p class="small">Explore plants, weather, space, and the body.</p>
+            <button data-classroom="science">Start experimenting!</button>
+          </div>
+          <div class="class-tile history-tile">
+            <span class="class-icon">🏛️</span><h3>Time Travelers</h3>
+            <p class="small">Discover people, objects, and ideas from the past.</p>
+            <button data-classroom="history">Travel through time!</button>
+          </div>
+          <div class="class-tile art-tile">
+            <span class="class-icon">🎨</span><h3>Art Studio</h3>
+            <p class="small">Practice colors, tools, patterns, and art words.</p>
+            <button data-classroom="art">Let’s create!</button>
           </div>
         </div>
         <button class="linkish" data-action="room">← Pet room</button>
@@ -262,7 +334,7 @@
           const affordable = save.stars >= item.cost;
           return `<article class="shop-item ${owned ? "owned" : ""}">
             <span class="shop-icon">${item.icon}</span>
-            <strong>${item.name}</strong><small>${item.type === "sticker" ? "Room sticker" : "Pet outfit"}</small>
+            <strong>${item.name}</strong><small>${item.type === "outfit" ? "Pet outfit" : "Room decoration"}</small>
             <button data-buy="${item.id}" ${owned || !affordable ? "disabled" : ""}>${owned ? "Owned ✓" : `⭐ ${item.cost}`}</button>
           </article>`;
         }).join("")}</div>
@@ -290,7 +362,7 @@
     ui.addEventListener("click", (event) => {
       const button = event.target.closest("button");
       if (!button) return;
-      const { action, pet, color, name, difficulty, reward, classroom, buy } = button.dataset;
+      const { action, pet, color, name, difficulty, reward, classroom, classLevel, buy } = button.dataset;
       sound(480, 0.06);
 
       if (action === "start") setScreen("choose");
@@ -315,7 +387,7 @@
         setScreen("title");
       }
       if (difficulty) { save.difficulty = difficulty; persist(); startClass("math"); }
-      if (classroom === "gym") startClass("gym");
+      if (classroom) startClass(classroom, classLevel);
       if (reward) {
         save.equipped = reward === "none" ? null : reward;
         persist();
@@ -393,35 +465,47 @@
     return { prompt: `${a} ${operator} ${b} = ?`, answer: String(answer), choices: Phaser.Utils.Array.Shuffle([...choices]).map(String) };
   }
 
-  function makeGymQuestion(used) {
-    const remaining = gymActivities.filter((activity) => !used.has(activity.answer));
-    const activity = Phaser.Math.RND.pick(remaining.length ? remaining : gymActivities);
-    used.add(activity.answer);
-    const distractors = Phaser.Utils.Array.Shuffle(gymActivities.filter((item) => item.answer !== activity.answer))
+  function makeLessonQuestion(lessonKey, used) {
+    const pool = lessonQuestions[lessonKey];
+    const remaining = pool.filter((question) => !used.has(question.id));
+    const question = Phaser.Math.RND.pick(remaining.length ? remaining : pool);
+    used.add(question.id);
+    const generatedChoices = Phaser.Utils.Array.Shuffle(pool.filter((item) => item.id !== question.id))
       .slice(0, 2).map((item) => item.answer);
     return {
-      prompt: "What are they doing?",
-      picture: activity.picture,
-      hint: activity.hint,
-      answer: activity.answer,
-      choices: Phaser.Utils.Array.Shuffle([activity.answer, ...distractors]),
+      prompt: question.prompt || (lessonKey === "gym-sports" ? "Which sport uses this?" : "What are they doing?"),
+      picture: question.picture,
+      hint: question.hint,
+      answer: question.answer,
+      choices: Phaser.Utils.Array.Shuffle(question.choices || [question.answer, ...generatedChoices]),
     };
   }
 
-  function startClass(classType) {
+  function startClass(classType, classLevel) {
     currentClass = classType;
-    const usedActivities = new Set();
-    const nextQuestion = () => classType === "gym" ? makeGymQuestion(usedActivities) : makeMathQuestion();
+    const lessonKey = classType === "gym" ? `gym-${classLevel || "movers"}` : classType;
+    const usedQuestions = new Set();
+    const nextQuestion = () => classType === "math" ? makeMathQuestion() : makeLessonQuestion(lessonKey, usedQuestions);
+    const classNames = {
+      math: "Math Meadow",
+      science: "Science Lab",
+      history: "Time Travelers",
+      art: "Art Studio",
+      "gym-movers": "Giggle Gym · Movers",
+      "gym-sports": "Giggle Gym · Sports Stars",
+      "gym-adventure": "Giggle Gym · Adventure",
+    };
+    const className = classNames[lessonKey] || classNames[classType];
     const state = { number: 1, mistakes: 0, question: nextQuestion(), locked: false };
     currentScreen = "class";
     scene?.redraw();
 
     const show = () => {
       ui.innerHTML = `${hud()}<div class="panel class-card">
-        <div class="progress">${classType === "gym" ? "Giggle Gym" : "Math Meadow"} · Question ${state.number} of 5</div>
-        ${state.question.picture ? `<div class="activity-picture" role="img" aria-label="A person doing an activity">${state.question.picture}</div>` : ""}
+        <div class="progress">${className} · Question ${state.number} of 5</div>
+        ${state.question.picture ? `<div class="activity-picture" role="img" aria-label="Question illustration">${state.question.picture}</div>` : ""}
         <h2 class="question ${state.question.picture ? "word-question" : ""}">${state.question.prompt}</h2>
-        <div class="answers">${state.question.choices.map((choice) => `<button class="answer ${state.question.picture ? "word-answer" : ""}" data-answer="${choice}">${choice}</button>`).join("")}</div>
+        <div class="answers">${state.question.choices.map((choice) => `<button class="answer ${state.question.picture ? "word-answer" : ""}" data-answer="${escapeHtml(choice)}">${escapeHtml(choice)}</button>`).join("")}</div>
         <p class="feedback" id="feedback">You’ve got this!</p>
       </div>`;
     };
@@ -449,7 +533,7 @@
           : state.question.prompt.includes("−") ? "Try counting back."
           : state.question.prompt.includes("×") ? "Think about equal groups."
           : "Think about sharing into equal groups.";
-        const hint = classType === "gym" ? `Hint: ${state.question.hint}.` : mathHint;
+        const hint = classType === "math" ? mathHint : `Hint: ${state.question.hint}.`;
         feedback.textContent = `Almost! ${hint}`;
         sound(260, .09);
       }
@@ -521,6 +605,10 @@
         "star-sticker": { icon: "⭐", x: .13, y: .24, angle: -9 },
         "paw-sticker": { icon: "🐾", x: .87, y: .29, angle: 8 },
         "rainbow-sticker": { icon: "🌈", x: .82, y: .15, angle: 2 },
+        "space-sticker": { icon: "🪐", x: .19, y: .14, angle: -5 },
+        "dino-sticker": { icon: "🦕", x: .91, y: .47, angle: 3 },
+        "art-sticker": { icon: "🎨", x: .08, y: .43, angle: -6 },
+        "gold-trophy": { icon: "🏆", x: .74, y: .59, angle: 0 },
       };
       Object.entries(placements).forEach(([id, placement]) => {
         if (!ownsItem(id)) return;

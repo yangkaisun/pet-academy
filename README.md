@@ -1,6 +1,6 @@
 # Pet Academy
 
-A tiny, cozy learning game built with Phaser. This first playable version lets a child choose a storybook-realistic dog, cat, or bunny in one of three colors; complete five-question Math and Gym classes; progress through five math levels; earn and spend stars in a prize shop; collect stickers and outfits; and save progress in the browser.
+A tiny, cozy learning game built with Phaser. Children choose a storybook-realistic dog, cat, or bunny in one of three colors; complete five-question Math, Gym, Science, History, and Art classes; progress through multiple learning levels; earn and spend stars in a prize shop; collect stickers and outfits; and save progress in the browser.
 
 ## Play locally
 
