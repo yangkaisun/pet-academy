@@ -87,7 +87,7 @@ The MVP should prove that choosing a pet, completing a class, and earning a rewa
   - Times Tables: multiplication by 2, 5, and 10.
   - Division Detective: exact division by 2, 5, and 10, with no remainders.
 - Three Gym levels: familiar movement words, sports identification, and adventure activities.
-- Curated beginner question sets for Science, History, and Art.
+- Four five-question lesson tracks each for Science, History, and Art.
 - Each class session contains 5 multiple-choice questions.
 - Friendly feedback, hints, and unlimited retries.
 - Stars awarded after each class.
@@ -161,15 +161,15 @@ Illustrations should show one unambiguous action, include children with varied a
 
 ### Science class
 
-Science Lab introduces plants, weather, magnets, space, animal life cycles, the human body, and changes of matter. Questions use a picture, three written choices, and a short explanatory hint.
+Science Lab uses four lesson tracks: Living World, Space Explorers, Animal Experts, and Earth Science. Topics include plants, weather, magnets, space, animal traits, habitats, the human body, water, seasons, and changes of matter. Questions use a picture, three written choices, and a short explanatory hint.
 
 ### History class
 
-Time Travelers introduces the idea of studying the past through artifacts, timelines, museums, early transportation, ancient civilizations, and communication before modern technology. Content should remain factual, culturally respectful, and appropriate for ages 6–12.
+Time Travelers uses four lesson tracks: History Basics, Ancient Worlds, Inventions & Ideas, and History Detectives. It introduces the past through artifacts, timelines, primary sources, museums, early transportation, ancient civilizations, and important technologies. Content should remain factual, culturally respectful, and appropriate for ages 6–12.
 
 ### Art class
 
-Art Studio practices colors, color mixing, art tools, patterns, portraits, sculpture, and collage. Questions should encourage art vocabulary and observation without treating creative preferences as right or wrong.
+Art Studio uses four lesson tracks: Color & Tools, Lines & Shapes, Materials & Making, and Art Forms. It practices color mixing, art tools, patterns, symmetry, painting, clay, fiber, printmaking, photography, architecture, and performing arts. Questions should encourage art vocabulary and observation without treating creative preferences as right or wrong.
 
 ### Rewards and progression
 
@@ -197,6 +197,14 @@ The first shop inventory includes:
 | Dino Sticker | Room decoration | 15 stars |
 | Artist Sticker | Room decoration | 18 stars |
 | Golden Trophy | Room decoration | 25 stars |
+| Strawberry Hat | Pet accessory | 28 stars |
+| Starry Wizard Hat | Pet accessory | 32 stars |
+| Golden Star Wand | Pet accessory | 35 stars |
+| Frog Bucket Hat | Pet accessory | 36 stars |
+| Daisy Bonnet | Pet accessory | 40 stars |
+| Rainbow Wand | Pet accessory | 42 stars |
+| Galaxy Hat | Pet accessory | 45 stars |
+| Moon Wand | Pet accessory | 50 stars |
 
 Purchased room decorations automatically appear in the pet room. Purchased outfits appear in the closet and can be equipped or removed at any time. The store must clearly show the player's current star balance, item costs, owned items, and whether an unowned item is affordable.
 
@@ -284,7 +292,7 @@ The first version is successful if:
 These are ideas for later, not promises for the first version:
 
 - Reading and music classes.
-- Additional levels for Science, History, and Art.
+- Additional advanced levels for every subject.
 - More pets and pet evolution paths.
 - Tricks and pet abilities.
 - Classroom and bedroom decoration.

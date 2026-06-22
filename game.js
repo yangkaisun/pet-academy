@@ -20,6 +20,14 @@
     { id: "dino-sticker", name: "Dino Sticker", icon: "🦕", type: "sticker", cost: 15 },
     { id: "art-sticker", name: "Artist Sticker", icon: "🎨", type: "sticker", cost: 18 },
     { id: "gold-trophy", name: "Golden Trophy", icon: "🏆", type: "decor", cost: 25 },
+    { id: "strawberry-hat", name: "Strawberry Hat", icon: "🍓", type: "outfit", cost: 28 },
+    { id: "wizard-hat", name: "Starry Wizard Hat", icon: "🧙", type: "outfit", cost: 32 },
+    { id: "frog-hat", name: "Frog Bucket Hat", icon: "🐸", type: "outfit", cost: 36 },
+    { id: "daisy-bonnet", name: "Daisy Bonnet", icon: "🌼", type: "outfit", cost: 40 },
+    { id: "galaxy-hat", name: "Galaxy Hat", icon: "🌌", type: "outfit", cost: 45 },
+    { id: "star-wand", name: "Golden Star Wand", icon: "⭐", type: "outfit", cost: 35 },
+    { id: "rainbow-wand", name: "Rainbow Wand", icon: "🌈", type: "outfit", cost: 42 },
+    { id: "moon-wand", name: "Moon Wand", icon: "🌙", type: "outfit", cost: 50 },
   ];
 
   const accessoryFrames = { hat: 0, bow: 1, glasses: 2, flower: 3, scarf: 4, crown: 5 };
@@ -38,6 +46,31 @@
       hat: { x: 0, y: -151, size: 108 }, bow: { x: 0, y: 69, size: 116 },
       glasses: { x: 0, y: -57, size: 130 }, flower: { x: 76, y: -142, size: 72 },
       scarf: { x: 0, y: 77, size: 140 }, crown: { x: 0, y: -147, size: 102 },
+    },
+  };
+
+  const premiumAccessoryFrames = {
+    "strawberry-hat": 0, "wizard-hat": 1, "frog-hat": 2, "daisy-bonnet": 3,
+    "galaxy-hat": 4, "star-wand": 5, "rainbow-wand": 6, "moon-wand": 7,
+  };
+  const premiumAccessoryFits = {
+    dog: {
+      "strawberry-hat": { x: 0, y: -184, size: 140 }, "wizard-hat": { x: 0, y: -183, size: 145 },
+      "frog-hat": { x: 0, y: -181, size: 142 }, "daisy-bonnet": { x: 0, y: -105, size: 188 },
+      "galaxy-hat": { x: 0, y: -183, size: 145 }, "star-wand": { x: 105, y: 52, size: 185, angle: 10 },
+      "rainbow-wand": { x: 105, y: 52, size: 185, angle: 10 }, "moon-wand": { x: 105, y: 52, size: 185, angle: 10 },
+    },
+    cat: {
+      "strawberry-hat": { x: 0, y: -139, size: 134 }, "wizard-hat": { x: 0, y: -139, size: 140 },
+      "frog-hat": { x: 0, y: -138, size: 136 }, "daisy-bonnet": { x: 0, y: -72, size: 178 },
+      "galaxy-hat": { x: 0, y: -139, size: 140 }, "star-wand": { x: 100, y: 60, size: 178, angle: 10 },
+      "rainbow-wand": { x: 100, y: 60, size: 178, angle: 10 }, "moon-wand": { x: 100, y: 60, size: 178, angle: 10 },
+    },
+    bunny: {
+      "strawberry-hat": { x: 0, y: -151, size: 112 }, "wizard-hat": { x: 0, y: -154, size: 120 },
+      "frog-hat": { x: 0, y: -149, size: 116 }, "daisy-bonnet": { x: 0, y: -55, size: 170 },
+      "galaxy-hat": { x: 0, y: -154, size: 120 }, "star-wand": { x: 106, y: 72, size: 170, angle: 10 },
+      "rainbow-wand": { x: 106, y: 72, size: 170, angle: 10 }, "moon-wand": { x: 106, y: 72, size: 170, angle: 10 },
     },
   };
 
@@ -120,7 +153,7 @@
       { id: "skate", answer: "Skateboarding", picture: "🛹", hint: "Riding a board with four wheels" },
       { id: "horse", answer: "Horseback riding", picture: "🏇", hint: "Riding and guiding a horse" },
     ],
-    science: [
+    "science-basics": [
       { id: "plant", prompt: "What helps this plant grow?", picture: "🌱", answer: "Sunlight and water", choices: ["Sunlight and water", "Candy and toys", "Paint and glue"], hint: "Plants need light and water" },
       { id: "magnet", prompt: "What can a magnet attract?", picture: "🧲", answer: "Some metals", choices: ["Some metals", "Every kind of wood", "Clouds"], hint: "Magnets can pull on iron and some other metals" },
       { id: "rain", prompt: "What kind of weather is this?", picture: "🌧️", answer: "Rainy", choices: ["Rainy", "Snowy", "Windless"], hint: "Water is falling from clouds" },
@@ -130,7 +163,7 @@
       { id: "ice", prompt: "What happens when ice gets warm?", picture: "🧊", answer: "It melts", choices: ["It melts", "It grows fur", "It becomes louder"], hint: "Solid water changes into liquid water" },
       { id: "bee", prompt: "How do bees help many flowers?", picture: "🐝", answer: "They pollinate them", choices: ["They pollinate them", "They turn them into rocks", "They paint them"], hint: "Bees carry pollen between flowers" },
     ],
-    history: [
+    "history-basics": [
       { id: "past", prompt: "What do historians study?", picture: "📜", answer: "The past", choices: ["The past", "Only tomorrow", "Imaginary planets"], hint: "History is the story of people and events before today" },
       { id: "archaeologist", prompt: "Who studies objects from long ago?", picture: "🏺", answer: "An archaeologist", choices: ["An archaeologist", "A weather reporter", "A veterinarian"], hint: "They study artifacts and ancient places" },
       { id: "pyramids", prompt: "Which civilization built these pyramids?", picture: "🔺", answer: "Ancient Egyptians", choices: ["Ancient Egyptians", "Modern astronauts", "Vikings in Canada"], hint: "They were built beside the Nile River" },
@@ -140,7 +173,7 @@
       { id: "museum", prompt: "Why do museums preserve old objects?", picture: "🏛️", answer: "To learn about the past", choices: ["To learn about the past", "To hide every object", "To make them disappear"], hint: "Old objects can teach us how people lived" },
       { id: "cave-art", prompt: "Where did some early people make art?", picture: "🪨", answer: "On cave walls", choices: ["On cave walls", "On computer screens", "On plastic toys"], hint: "Some ancient paintings survive inside caves" },
     ],
-    art: [
+    "art-basics": [
       { id: "brush", prompt: "Which tool can spread paint?", picture: "🖌️", answer: "A paintbrush", choices: ["A paintbrush", "A telescope", "A spoon"], hint: "Its bristles hold and spread paint" },
       { id: "palette", prompt: "What does an artist use this for?", picture: "🎨", answer: "Mixing paint colors", choices: ["Mixing paint colors", "Measuring rainfall", "Planting seeds"], hint: "Paint colors can be placed and mixed on it" },
       { id: "purple", prompt: "What can red and blue make together?", picture: "🔴 + 🔵", answer: "Purple", choices: ["Purple", "Green", "Orange"], hint: "Mix these two colors to make a violet color" },
@@ -149,6 +182,69 @@
       { id: "collage", prompt: "What is art made by gluing pieces together?", picture: "✂️", answer: "A collage", choices: ["A collage", "A solo", "A telescope"], hint: "Paper, fabric, and pictures can be combined" },
       { id: "portrait", prompt: "What is a picture of a person called?", picture: "🖼️", answer: "A portrait", choices: ["A portrait", "A landscape", "A map"], hint: "It usually focuses on a face or person" },
       { id: "pattern", prompt: "What repeats in a design?", picture: "🔷🔶🔷🔶", answer: "A pattern", choices: ["A pattern", "A shadow", "A whisper"], hint: "Shapes or colors repeat in a predictable way" },
+    ],
+    "science-space": [
+      { id: "sun-star", prompt: "What kind of object is the Sun?", picture: "☀️", answer: "A star", choices: ["A star", "A moon", "A comet"], hint: "It makes its own light and heat" },
+      { id: "earth-planet", prompt: "What kind of object is Earth?", picture: "🌍", answer: "A planet", choices: ["A planet", "A star", "A galaxy"], hint: "It travels around the Sun" },
+      { id: "moon-orbit", prompt: "What does the Moon travel around?", picture: "🌙", answer: "Earth", choices: ["Earth", "Mars", "A cloud"], hint: "The Moon is Earth's natural satellite" },
+      { id: "astronaut", prompt: "Who travels and works in space?", picture: "🧑‍🚀", answer: "An astronaut", choices: ["An astronaut", "A lifeguard", "A gardener"], hint: "They train to work in spacecraft" },
+      { id: "gravity", prompt: "What pulls objects toward Earth?", picture: "🍎⬇️", answer: "Gravity", choices: ["Gravity", "Moonlight", "Sound"], hint: "It keeps our feet on the ground" },
+    ],
+    "science-animals": [
+      { id: "habitat", prompt: "What is an animal's home called?", picture: "🏡", answer: "A habitat", choices: ["A habitat", "A compass", "A recipe"], hint: "It provides food, water, and shelter" },
+      { id: "herbivore", prompt: "What does a herbivore mainly eat?", picture: "🦒🌿", answer: "Plants", choices: ["Plants", "Rocks", "Metal"], hint: "Cows, giraffes, and rabbits are examples" },
+      { id: "nocturnal", prompt: "When are nocturnal animals active?", picture: "🦉🌙", answer: "At night", choices: ["At night", "Only at noon", "Only in winter"], hint: "Owls and many bats are active after dark" },
+      { id: "backbone", prompt: "What does a vertebrate have?", picture: "🐕", answer: "A backbone", choices: ["A backbone", "Six wings", "No body"], hint: "Dogs, fish, birds, and people are vertebrates" },
+      { id: "amphibian", prompt: "Which animal is an amphibian?", picture: "🐸", answer: "A frog", choices: ["A frog", "A cat", "An eagle"], hint: "Many amphibians spend part of life in water and part on land" },
+    ],
+    "science-earth": [
+      { id: "evaporation", prompt: "What happens when the Sun warms water?", picture: "☀️💧", answer: "It can evaporate", choices: ["It can evaporate", "It becomes a rock", "It grows leaves"], hint: "Liquid water can become water vapor" },
+      { id: "clouds", prompt: "What are clouds made from?", picture: "☁️", answer: "Tiny water drops or ice", choices: ["Tiny water drops or ice", "Cotton candy", "Dry sand"], hint: "Water in the air cools and gathers together" },
+      { id: "earthquake", prompt: "What happens during an earthquake?", picture: "🏠〰️", answer: "The ground shakes", choices: ["The ground shakes", "The Sun turns off", "All rivers freeze"], hint: "Movement in Earth's crust can shake the ground" },
+      { id: "recycle", prompt: "What can recycling help reduce?", picture: "♻️", answer: "Waste", choices: ["Waste", "Kindness", "Daylight"], hint: "Materials can be used again instead of thrown away" },
+      { id: "seasons", prompt: "Why do Earth’s seasons change?", picture: "🌍☀️", answer: "Earth is tilted as it orbits", choices: ["Earth is tilted as it orbits", "The Moon changes color", "Clouds move north"], hint: "Different parts of Earth receive different sunlight during the year" },
+    ],
+    "history-ancient": [
+      { id: "greek-games", prompt: "Where did the ancient Olympic Games begin?", picture: "🏅", answer: "Ancient Greece", choices: ["Ancient Greece", "Ancient Antarctica", "Modern Australia"], hint: "Athletes gathered at Olympia" },
+      { id: "roman-roads", prompt: "What helped Romans travel across their empire?", picture: "🛣️", answer: "A network of roads", choices: ["A network of roads", "Airplanes", "Subway trains"], hint: "Roman engineers built many long-lasting roads" },
+      { id: "egypt-nile", prompt: "Which river was central to ancient Egypt?", picture: "🏞️", answer: "The Nile", choices: ["The Nile", "The Amazon", "The Mississippi"], hint: "Its floods helped farmers grow food" },
+      { id: "maya", prompt: "What did Maya scholars carefully study?", picture: "🌌", answer: "The sky and calendars", choices: ["The sky and calendars", "Television", "Steam engines"], hint: "They were skilled astronomers and mathematicians" },
+      { id: "great-wall", prompt: "Where is the Great Wall?", picture: "🧱", answer: "China", choices: ["China", "Egypt", "Brazil"], hint: "Many sections were built across northern China" },
+    ],
+    "history-inventions": [
+      { id: "wheel", prompt: "What invention made carts easier to move?", picture: "🛞", answer: "The wheel", choices: ["The wheel", "The pillow", "The paint tube"], hint: "It rolls around an axle" },
+      { id: "printing", prompt: "What helped make many copies of books?", picture: "📚", answer: "The printing press", choices: ["The printing press", "The telescope", "The compass"], hint: "Movable type made printed pages faster to produce" },
+      { id: "compass", prompt: "What helps travelers find direction?", picture: "🧭", answer: "A compass", choices: ["A compass", "A candle", "A drum"], hint: "Its needle points toward magnetic north" },
+      { id: "telephone", prompt: "What invention let voices travel far away?", picture: "☎️", answer: "The telephone", choices: ["The telephone", "The wheelbarrow", "The sundial"], hint: "People could speak without being in the same place" },
+      { id: "steam", prompt: "What powered many early trains?", picture: "🚂", answer: "Steam engines", choices: ["Steam engines", "Solar panels", "Batteries"], hint: "Heated water created steam that moved machinery" },
+    ],
+    "history-detectives": [
+      { id: "artifact", prompt: "What is an artifact?", picture: "🏺", answer: "An object made or used by people", choices: ["An object made or used by people", "A kind of weather", "A future prediction"], hint: "Artifacts give clues about life in the past" },
+      { id: "primary-source", prompt: "Which is a primary source?", picture: "📔", answer: "A diary written at the time", choices: ["A diary written at the time", "A new fictional story", "A guess with no evidence"], hint: "It was created during the time being studied" },
+      { id: "oral-history", prompt: "What is oral history?", picture: "🗣️", answer: "Memories shared by speaking", choices: ["Memories shared by speaking", "A map of oceans", "A list of math facts"], hint: "People record stories told by those who experienced events" },
+      { id: "map-clue", prompt: "What can an old map teach us?", picture: "🗺️", answer: "How people understood places", choices: ["How people understood places", "Tomorrow's weather", "How every animal sounds"], hint: "Maps show routes, borders, and place names from their time" },
+      { id: "evidence", prompt: "What should historians use to support an idea?", picture: "🔎", answer: "Evidence", choices: ["Evidence", "A random guess", "A magic trick"], hint: "Sources and artifacts help explain what likely happened" },
+    ],
+    "art-lines": [
+      { id: "horizontal", prompt: "Which direction is horizontal?", picture: "↔️", answer: "Side to side", choices: ["Side to side", "Up and down", "In a circle only"], hint: "The horizon stretches from left to right" },
+      { id: "vertical", prompt: "Which direction is vertical?", picture: "↕️", answer: "Up and down", choices: ["Up and down", "Side to side", "Zigzag only"], hint: "A standing tree trunk is mostly vertical" },
+      { id: "curve", prompt: "What kind of line bends smoothly?", picture: "〰️", answer: "A curved line", choices: ["A curved line", "A straight line", "A dotted point"], hint: "It changes direction without a sharp corner" },
+      { id: "geometric", prompt: "Which is a geometric shape?", picture: "🔺", answer: "A triangle", choices: ["A triangle", "A cloud", "A splash"], hint: "It has three straight sides" },
+      { id: "symmetry", prompt: "What does symmetry mean?", picture: "🦋", answer: "Two sides match", choices: ["Two sides match", "Every color is red", "Nothing has a shape"], hint: "A butterfly's wings are a helpful example" },
+    ],
+    "art-materials": [
+      { id: "watercolor", prompt: "What is mixed with watercolor paint?", picture: "💧🎨", answer: "Water", choices: ["Water", "Sand", "Cooking oil"], hint: "Water thins the paint and carries color" },
+      { id: "clay", prompt: "Which material can be shaped into pottery?", picture: "🏺", answer: "Clay", choices: ["Clay", "Glass marbles", "Paper clips"], hint: "It is soft when wet and hard after firing" },
+      { id: "charcoal", prompt: "Which material can make rich black drawings?", picture: "✍️", answer: "Charcoal", choices: ["Charcoal", "Water", "Yarn"], hint: "Artists use soft charcoal sticks for dark marks" },
+      { id: "weaving", prompt: "What does weaving combine?", picture: "🧶", answer: "Threads or yarn", choices: ["Threads or yarn", "Rocks and water", "Metal spoons"], hint: "Strands cross over and under each other" },
+      { id: "printmaking", prompt: "What does printmaking transfer?", picture: "🖼️", answer: "Ink from a surface", choices: ["Ink from a surface", "Music from a drum", "Light from the Moon"], hint: "A prepared surface can make more than one image" },
+    ],
+    "art-forms": [
+      { id: "landscape", prompt: "What does a landscape usually show?", picture: "🏞️", answer: "A place or scenery", choices: ["A place or scenery", "Only a person's face", "A math equation"], hint: "Mountains, fields, cities, and oceans can be landscapes" },
+      { id: "illustration", prompt: "What can an illustration help do?", picture: "📖", answer: "Tell or explain a story", choices: ["Tell or explain a story", "Measure temperature", "Repair a bicycle"], hint: "Pictures can add meaning to words" },
+      { id: "photography", prompt: "Which art form uses a camera?", picture: "📷", answer: "Photography", choices: ["Photography", "Pottery", "Weaving"], hint: "Photographers compose images with light" },
+      { id: "architecture", prompt: "What does an architect design?", picture: "🏛️", answer: "Buildings and spaces", choices: ["Buildings and spaces", "Only songs", "Weather forecasts"], hint: "Architecture combines function, structure, and beauty" },
+      { id: "performing", prompt: "Which is a performing art?", picture: "💃", answer: "Dance", choices: ["Dance", "Sculpture", "Drawing"], hint: "It is performed live through movement" },
     ],
   };
 
@@ -292,18 +388,24 @@
           </div>
           <div class="class-tile science-tile">
             <span class="class-icon">🔬</span><h3>Science Lab</h3>
-            <p class="small">Explore plants, weather, space, and the body.</p>
-            <button data-classroom="science">Start experimenting!</button>
+            <button data-classroom="science" data-class-level="basics">🌱 Living World <span class="small">Plants, weather, and the body</span></button>
+            <button data-classroom="science" data-class-level="space">🚀 Space Explorers <span class="small">Earth, Moon, Sun, and gravity</span></button>
+            <button data-classroom="science" data-class-level="animals">🦉 Animal Experts <span class="small">Habitats and animal traits</span></button>
+            <button data-classroom="science" data-class-level="earth">🌍 Earth Science <span class="small">Water, seasons, and our planet</span></button>
           </div>
           <div class="class-tile history-tile">
             <span class="class-icon">🏛️</span><h3>Time Travelers</h3>
-            <p class="small">Discover people, objects, and ideas from the past.</p>
-            <button data-classroom="history">Travel through time!</button>
+            <button data-classroom="history" data-class-level="basics">📜 History Basics <span class="small">Objects, timelines, and the past</span></button>
+            <button data-classroom="history" data-class-level="ancient">🏺 Ancient Worlds <span class="small">Greece, Egypt, Rome, Maya, and China</span></button>
+            <button data-classroom="history" data-class-level="inventions">💡 Inventions & Ideas <span class="small">Tools that changed daily life</span></button>
+            <button data-classroom="history" data-class-level="detectives">🔎 History Detectives <span class="small">Sources, evidence, and artifacts</span></button>
           </div>
           <div class="class-tile art-tile">
             <span class="class-icon">🎨</span><h3>Art Studio</h3>
-            <p class="small">Practice colors, tools, patterns, and art words.</p>
-            <button data-classroom="art">Let’s create!</button>
+            <button data-classroom="art" data-class-level="basics">🎨 Color & Tools <span class="small">Mixing, tools, and art words</span></button>
+            <button data-classroom="art" data-class-level="lines">🔷 Lines & Shapes <span class="small">Direction, curves, and symmetry</span></button>
+            <button data-classroom="art" data-class-level="materials">🧶 Materials & Making <span class="small">Paint, clay, fiber, and prints</span></button>
+            <button data-classroom="art" data-class-level="forms">🖼️ Art Forms <span class="small">Photos, buildings, dance, and more</span></button>
           </div>
         </div>
         <button class="linkish" data-action="room">← Pet room</button>
@@ -483,14 +585,23 @@
 
   function startClass(classType, classLevel) {
     currentClass = classType;
-    const lessonKey = classType === "gym" ? `gym-${classLevel || "movers"}` : classType;
+    const lessonKey = classType === "math" ? "math" : `${classType}-${classLevel || (classType === "gym" ? "movers" : "basics")}`;
     const usedQuestions = new Set();
     const nextQuestion = () => classType === "math" ? makeMathQuestion() : makeLessonQuestion(lessonKey, usedQuestions);
     const classNames = {
       math: "Math Meadow",
-      science: "Science Lab",
-      history: "Time Travelers",
-      art: "Art Studio",
+      "science-basics": "Science Lab · Living World",
+      "science-space": "Science Lab · Space Explorers",
+      "science-animals": "Science Lab · Animal Experts",
+      "science-earth": "Science Lab · Earth Science",
+      "history-basics": "Time Travelers · History Basics",
+      "history-ancient": "Time Travelers · Ancient Worlds",
+      "history-inventions": "Time Travelers · Inventions & Ideas",
+      "history-detectives": "Time Travelers · History Detectives",
+      "art-basics": "Art Studio · Color & Tools",
+      "art-lines": "Art Studio · Lines & Shapes",
+      "art-materials": "Art Studio · Materials & Making",
+      "art-forms": "Art Studio · Art Forms",
       "gym-movers": "Giggle Gym · Movers",
       "gym-sports": "Giggle Gym · Sports Stars",
       "gym-adventure": "Giggle Gym · Adventure",
@@ -573,6 +684,7 @@
     preload() {
       this.load.spritesheet("pet-portraits", "assets/pet-grid-transparent-v2.png", { frameWidth: 418, frameHeight: 418 });
       this.load.spritesheet("accessories", "assets/accessories-transparent-v1.png", { frameWidth: 418, frameHeight: 418 });
+      this.load.spritesheet("premium-accessories", "assets/premium-accessories-transparent-v3.png", { frameWidth: 418, frameHeight: 418 });
       this.load.image("pet-room", "assets/pet-room.png");
       this.load.image("classroom", "assets/classroom.png");
     }
@@ -627,11 +739,12 @@
       container.add(petPortrait);
 
       const outfit = save.equipped;
-      const accessoryFrame = accessoryFrames[outfit];
-      const fit = accessoryFits[save.petType]?.[outfit];
+      const isPremium = premiumAccessoryFrames[outfit] !== undefined;
+      const accessoryFrame = isPremium ? premiumAccessoryFrames[outfit] : accessoryFrames[outfit];
+      const fit = isPremium ? premiumAccessoryFits[save.petType]?.[outfit] : accessoryFits[save.petType]?.[outfit];
       if (accessoryFrame !== undefined && fit) {
-        const accessory = this.add.sprite(fit.x, fit.y, "accessories", accessoryFrame)
-          .setDisplaySize(fit.size, fit.size);
+        const accessory = this.add.sprite(fit.x, fit.y, isPremium ? "premium-accessories" : "accessories", accessoryFrame)
+          .setDisplaySize(fit.size, fit.size).setAngle(fit.angle || 0);
         container.add(accessory);
       }
       container.setSize(370, 370).setInteractive({ useHandCursor: true });
